@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050508;
+  --foreground: #e8e8ec;
+  --surface: rgba(255, 255, 255, 0.018);
+  --surface-hover: rgba(255, 255, 255, 0.035);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-active: rgba(255, 255, 255, 0.12);
+  --accent: #4B7BF5;
+  --accent-hover: #5B8AF6;
+  --accent-glow: rgba(75, 123, 245, 0.12);
+  --muted: rgba(255, 255, 255, 0.35);
+  --faint: rgba(255, 255, 255, 0.18);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Odyssey deep-space background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(75, 123, 245, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 15% 25%, rgba(255, 255, 255, 0.012) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 60% at 85% 70%, rgba(255, 255, 255, 0.008) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Star field with depth layers */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    /* Bright stars - sparse */
+    radial-gradient(1.2px 1.2px at 47px 23px, rgba(255, 255, 255, 0.22), transparent),
+    radial-gradient(1px 1px at 193px 67px, rgba(255, 255, 255, 0.18), transparent),
+    radial-gradient(1.3px 1.3px at 341px 142px, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 509px 31px, rgba(255, 255, 255, 0.16), transparent),
+    radial-gradient(1.1px 1.1px at 671px 189px, rgba(255, 255, 255, 0.19), transparent),
+    /* Medium stars */
+    radial-gradient(0.8px 0.8px at 89px 97px, rgba(255, 255, 255, 0.12), transparent),
+    radial-gradient(0.7px 0.7px at 157px 183px, rgba(255, 255, 255, 0.09), transparent),
+    radial-gradient(0.8px 0.8px at 263px 47px, rgba(255, 255, 255, 0.11), transparent),
+    radial-gradient(0.7px 0.7px at 419px 113px, rgba(255, 255, 255, 0.08), transparent),
+    radial-gradient(0.8px 0.8px at 557px 79px, rgba(255, 255, 255, 0.1), transparent),
+    radial-gradient(0.7px 0.7px at 623px 157px, rgba(255, 255, 255, 0.09), transparent),
+    /* Dim stars - dense */
+    radial-gradient(0.5px 0.5px at 31px 151px, rgba(255, 255, 255, 0.05), transparent),
+    radial-gradient(0.4px 0.4px at 113px 43px, rgba(255, 255, 255, 0.04), transparent),
+    radial-gradient(0.5px 0.5px at 217px 121px, rgba(255, 255, 255, 0.06), transparent),
+    radial-gradient(0.4px 0.4px at 307px 87px, rgba(255, 255, 255, 0.04), transparent),
+    radial-gradient(0.5px 0.5px at 383px 167px, rgba(255, 255, 255, 0.05), transparent),
+    radial-gradient(0.4px 0.4px at 461px 53px, rgba(255, 255, 255, 0.04), transparent),
+    radial-gradient(0.5px 0.5px at 541px 139px, rgba(255, 255, 255, 0.06), transparent),
+    radial-gradient(0.4px 0.4px at 601px 37px, rgba(255, 255, 255, 0.03), transparent),
+    radial-gradient(0.5px 0.5px at 689px 103px, rgba(255, 255, 255, 0.05), transparent);
+  background-size: 720px 210px;
+  pointer-events: none;
+  animation: starDrift 120s linear infinite;
+}
+
+@keyframes starDrift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-210px); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Prose overrides */
+.prose-invert a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.prose-invert a:hover {
+  color: var(--accent-hover);
+}
+
+/* Focus rings */
+*:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(75, 123, 245, 0.25);
+  color: white;
+}
+
+/* Smooth transitions */
+button, a, input, textarea {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card glow on hover */
+.card-glow {
+  position: relative;
+}
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(75, 123, 245, 0.08), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.card-glow:hover::before {
+  opacity: 1;
+}

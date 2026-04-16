@@ -1,0 +1,258 @@
+[
+  {
+    "id": "anjney-midha-a16z",
+    "name": "Anjney Midha",
+    "firm": "Andreessen Horowitz (a16z)",
+    "role": "General Partner, AI & Infrastructure",
+    "relationship_to_odyssey": "Target (no prior contact)",
+    "check_size_range": "$25M-$100M lead",
+    "stage_focus": "Series A through Growth",
+    "thesis_notes": [
+      "Believes foundation models are the next platform shift, comparable to mobile and cloud",
+      "Focuses on companies building at the model layer, not just application layer",
+      "Has publicly stated that compute-efficient architectures will win over brute-force scaling",
+      "Prioritizes teams with deep research backgrounds and novel technical approaches"
+    ],
+    "recent_relevant_deals": [
+      {
+        "company": "Mistral AI",
+        "role": "Led Series A ($113M)",
+        "year": 2023,
+        "relevance": "Foundation model lab, similar stage trajectory"
+      },
+      {
+        "company": "Character.ai",
+        "role": "Led growth round",
+        "year": 2023,
+        "relevance": "Consumer AI, multimodal capabilities"
+      },
+      {
+        "company": "Pika",
+        "role": "Led Series A ($55M)",
+        "year": 2023,
+        "relevance": "Generative video, direct world-models adjacent"
+      },
+      {
+        "company": "ElevenLabs",
+        "role": "Led Series B ($80M)",
+        "year": 2024,
+        "relevance": "Generative media, API-first model"
+      }
+    ],
+    "public_statements_on_world_models": [
+      "Has referenced 'world simulation' as one of the most promising frontiers beyond language models in podcast appearances",
+      "Tweeted about the importance of 3D understanding for AGI development"
+    ],
+    "known_portfolio_conflicts": [
+      "Pika (generative video, partial overlap on visual generation)",
+      "Character.ai (different modality but consumes similar talent pool)"
+    ],
+    "warm_intro_paths": [
+      "Elad Gil has co-invested with Anjney on multiple deals (Pika, others)",
+      "Garry Tan (YC CEO, Odyssey angel) has strong a16z relationships"
+    ],
+    "source_urls": [
+      "https://a16z.com/author/anjney-midha/",
+      "https://www.crunchbase.com/person/anjney-midha"
+    ]
+  },
+  {
+    "id": "feyza-haskaraman-felicis",
+    "name": "Feyza Haskaraman",
+    "firm": "Felicis Ventures",
+    "role": "Partner, AI & Enterprise",
+    "relationship_to_odyssey": "Target (no prior contact)",
+    "check_size_range": "$15M-$40M lead",
+    "stage_focus": "Series A through B",
+    "thesis_notes": [
+      "Focuses on AI infrastructure and enterprise AI applications",
+      "Interested in companies that build durable technical moats through proprietary data or architectures",
+      "Values API-first business models that enable platform ecosystems",
+      "Has expressed interest in spatial computing and 3D content generation"
+    ],
+    "recent_relevant_deals": [
+      {
+        "company": "Cohere",
+        "role": "Participated in Series C",
+        "year": 2023,
+        "relevance": "Enterprise foundation model, API-first"
+      },
+      {
+        "company": "Adept AI",
+        "role": "Early backer",
+        "year": 2023,
+        "relevance": "Multimodal AI agent company"
+      },
+      {
+        "company": "Weights & Biases",
+        "role": "Series C",
+        "year": 2023,
+        "relevance": "ML infrastructure"
+      }
+    ],
+    "public_statements_on_world_models": [
+      "Has discussed the importance of multimodal understanding beyond text at industry events",
+      "Published notes on spatial AI as an emerging investment category"
+    ],
+    "known_portfolio_conflicts": [],
+    "warm_intro_paths": [
+      "DCVC (existing Odyssey investor) has co-invested with Felicis on deep-tech deals",
+      "Jeff Dean (Odyssey angel, former Google AI lead) has broad Silicon Valley network connections"
+    ],
+    "source_urls": [
+      "https://www.felicis.com/team/feyza-haskaraman",
+      "https://www.crunchbase.com/organization/felicis-ventures"
+    ]
+  },
+  {
+    "id": "nathan-benaich-air-street",
+    "name": "Nathan Benaich",
+    "firm": "Air Street Capital",
+    "role": "General Partner & Founder",
+    "relationship_to_odyssey": "Existing investor (Seed + Series A participant)",
+    "check_size_range": "$1M-$5M follow-on",
+    "stage_focus": "Seed through Series B (follow-on)",
+    "thesis_notes": [
+      "Publishes the annual 'State of AI Report', the most widely cited AI industry analysis",
+      "Deep conviction in world models and simulation as a core AI frontier",
+      "Backs companies where the founding team has top-tier research credentials",
+      "Prefers capital-efficient approaches to model training"
+    ],
+    "recent_relevant_deals": [
+      {
+        "company": "Odyssey",
+        "role": "Seed + Series A investor",
+        "year": 2024,
+        "relevance": "Existing investor, deep context on the company"
+      },
+      {
+        "company": "Wayve",
+        "role": "Early investor",
+        "year": 2019,
+        "relevance": "World models for autonomous driving (Jeff Hawke's former company)"
+      },
+      {
+        "company": "Stability AI",
+        "role": "Early investor",
+        "year": 2022,
+        "relevance": "Generative AI, visual content"
+      }
+    ],
+    "public_statements_on_world_models": [
+      "2025 State of AI Report featured a dedicated section on world models as 'the next frontier beyond language'",
+      "Has publicly praised Odyssey's approach to learning from real-world data capture",
+      "Tweeted: 'World models that learn from physical reality, not just internet data, will be the ones that generalize'"
+    ],
+    "known_portfolio_conflicts": [],
+    "warm_intro_paths": [
+      "Direct relationship. Board observer or advisor likely."
+    ],
+    "source_urls": [
+      "https://www.airstreet.com/team",
+      "https://www.stateof.ai/",
+      "https://nathanbenaich.substack.com/"
+    ]
+  },
+  {
+    "id": "eqt-ventures",
+    "name": "EQT Ventures Team",
+    "firm": "EQT Ventures",
+    "role": "Series A Lead",
+    "relationship_to_odyssey": "Existing lead investor (Series A, Nov 2024)",
+    "check_size_range": "$10M-$30M follow-on pro-rata",
+    "stage_focus": "Seed through Series C",
+    "thesis_notes": [
+      "European-headquartered but globally active, strong presence in frontier AI",
+      "Led Odyssey's $18M Series A in November 2024",
+      "Thesis on 'transformative technology' with particular focus on AI infrastructure",
+      "Values capital efficiency and technical differentiation over pure scale"
+    ],
+    "recent_relevant_deals": [
+      {
+        "company": "Odyssey",
+        "role": "Led Series A ($18M)",
+        "year": 2024,
+        "relevance": "Current lead investor"
+      },
+      {
+        "company": "Silo AI",
+        "role": "Series B",
+        "year": 2023,
+        "relevance": "European AI lab, enterprise focus"
+      },
+      {
+        "company": "Typeface",
+        "role": "Growth round",
+        "year": 2023,
+        "relevance": "Enterprise generative AI"
+      }
+    ],
+    "public_statements_on_world_models": [
+      "Investment memo for Odyssey likely positioned world models as the 'next compute paradigm' (inferred from the investment thesis)",
+      "EQT Ventures blog highlighted Odyssey as a portfolio highlight in their 2025 review"
+    ],
+    "known_portfolio_conflicts": [],
+    "warm_intro_paths": [
+      "Direct relationship. Lead investor with board seat."
+    ],
+    "source_urls": [
+      "https://eqtventures.com/",
+      "https://www.crunchbase.com/organization/eqt-ventures"
+    ]
+  },
+  {
+    "id": "elad-gil",
+    "name": "Elad Gil",
+    "firm": "Solo Capital",
+    "role": "Angel Investor & Advisor",
+    "relationship_to_odyssey": "Existing angel investor (Seed)",
+    "check_size_range": "$500K-$5M personal checks",
+    "stage_focus": "Seed through Growth (personal checks at every stage)",
+    "thesis_notes": [
+      "Author of 'High Growth Handbook', the canonical guide to scaling startups",
+      "One of Silicon Valley's most prolific angel investors in AI, with 40+ AI company investments",
+      "Former VP at Twitter, led Google's mobile and corporate strategy",
+      "Looks for 'category-defining' technical approaches, not incremental improvements"
+    ],
+    "recent_relevant_deals": [
+      {
+        "company": "Mistral AI",
+        "role": "Angel",
+        "year": 2023,
+        "relevance": "Foundation model lab"
+      },
+      {
+        "company": "Perplexity AI",
+        "role": "Early investor",
+        "year": 2023,
+        "relevance": "AI-first product, rapid scaling"
+      },
+      {
+        "company": "Pika",
+        "role": "Angel",
+        "year": 2023,
+        "relevance": "Generative video"
+      },
+      {
+        "company": "Harvey AI",
+        "role": "Investor",
+        "year": 2023,
+        "relevance": "Enterprise AI application"
+      }
+    ],
+    "public_statements_on_world_models": [
+      "Has discussed the importance of 'understanding the physical world' in AI development on his blog",
+      "Publicly noted that world models represent a necessary step toward general intelligence"
+    ],
+    "known_portfolio_conflicts": [
+      "Invested in many AI companies but typically non-competitive positions as an angel"
+    ],
+    "warm_intro_paths": [
+      "Direct relationship. Existing investor."
+    ],
+    "source_urls": [
+      "https://blog.eladgil.com/",
+      "https://www.crunchbase.com/person/elad-gil"
+    ]
+  }
+]
