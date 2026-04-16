@@ -220,7 +220,7 @@ export default function InvestorUpdate() {
             </div>
             <div className="px-7 py-7">
               {draft ? (
-                <div className="prose prose-invert prose-sm max-w-none prose-headings:font-[family-name:var(--font-playfair)] prose-headings:text-white/85 prose-headings:font-normal prose-p:text-white/55 prose-p:leading-relaxed prose-li:text-white/55 prose-strong:text-white/75">
+                <div className="prose prose-invert prose-sm max-w-none prose-headings:font-[family-name:var(--font-playfair)] prose-headings:text-white/85 prose-headings:font-normal prose-p:text-white/60 prose-p:leading-[1.7] prose-li:text-white/60 prose-li:leading-[1.7] prose-strong:text-white/90 prose-strong:font-semibold prose-ul:space-y-1 prose-h2:text-[16px] prose-h2:mt-6 prose-h2:mb-2 prose-h3:text-[14px] prose-h3:mt-5 prose-h3:mb-2 prose-ul:marker:text-white/20 [&_strong]:text-white/85">
                   <ReactMarkdown>{draft}</ReactMarkdown>
                 </div>
               ) : (

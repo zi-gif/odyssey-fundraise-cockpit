@@ -259,7 +259,7 @@ export default function MeetingPrep({ investors }: MeetingPrepProps) {
               {copied ? "Copied" : "Copy markdown"}
             </button>
           </div>
-          <div className="px-7 py-7 prose prose-invert prose-sm max-w-none prose-headings:font-[family-name:var(--font-playfair)] prose-headings:text-white/85 prose-headings:font-normal prose-headings:tracking-[-0.01em] prose-p:text-white/55 prose-p:leading-relaxed prose-li:text-white/55 prose-li:leading-relaxed prose-strong:text-white/75 prose-h2:text-[18px] prose-h2:mt-10 prose-h2:mb-3 prose-h2:first:mt-0 prose-ol:text-white/55 prose-ul:marker:text-white/15">
+          <div className="px-7 py-7 prose prose-invert prose-sm max-w-none prose-headings:font-[family-name:var(--font-playfair)] prose-headings:text-white/85 prose-headings:font-normal prose-headings:tracking-[-0.01em] prose-p:text-white/60 prose-p:leading-[1.7] prose-li:text-white/60 prose-li:leading-[1.7] prose-strong:text-white/90 prose-strong:font-semibold prose-h2:text-[18px] prose-h2:mt-10 prose-h2:mb-3 prose-h2:first:mt-0 prose-ol:text-white/60 prose-ul:marker:text-white/20 [&_strong]:text-white/85">
             <ReactMarkdown>{output}</ReactMarkdown>
             {isLoading && (
               <span className="inline-block w-[3px] h-[18px] bg-[var(--accent)]/50 animate-pulse ml-0.5 rounded-full" />
