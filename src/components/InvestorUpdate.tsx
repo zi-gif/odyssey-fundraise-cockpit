@@ -60,7 +60,52 @@ export default function InvestorUpdate() {
   const [loadingPhase, setLoadingPhase] = useState<
     "draft" | "evaluate" | null
   >(null);
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<"text" | "html" | false>(false);
+
+  // Convert markdown to minimal MailChimp-safe HTML
+  const markdownToHtml = (md: string): string => {
+    return md
+      .split("\n")
+      .map((line) => {
+        // Horizontal rules
+        if (line.trim() === "---") return "<br>";
+        // Bold headers (standalone bold lines)
+        if (/^\*\*(.+)\*\*$/.test(line.trim())) {
+          const text = line.trim().replace(/^\*\*(.+)\*\*$/, "$1");
+          return `<br><strong>${text}</strong><br>`;
+        }
+        // Bullet points
+        if (/^[-*]\s/.test(line.trim())) {
+          const text = line.trim().replace(/^[-*]\s/, "");
+          // Handle inline bold
+          const formatted = text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+          return `&bull; ${formatted}<br>`;
+        }
+        // Empty lines
+        if (line.trim() === "") return "<br>";
+        // Regular text with inline bold
+        const formatted = line.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+        return `${formatted}<br>`;
+      })
+      .join("\n");
+  };
+
+  const handleCopyText = () => {
+    // Strip markdown formatting for plain text
+    const plain = draft
+      .replace(/\*\*(.+?)\*\*/g, "$1")
+      .replace(/^[-*]\s/gm, "- ");
+    navigator.clipboard.writeText(plain);
+    setCopied("text");
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleCopyHtml = () => {
+    const html = markdownToHtml(draft);
+    navigator.clipboard.writeText(html);
+    setCopied("html");
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleGenerate = async () => {
     setIsLoading(true);
@@ -87,12 +132,6 @@ export default function InvestorUpdate() {
       setIsLoading(false);
       setLoadingPhase(null);
     }
-  };
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(draft);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -196,61 +235,46 @@ export default function InvestorUpdate() {
         </button>
       </div>
 
-      {/* Output: Email + Flags */}
+      {/* Output: Email Preview + Flags */}
       {(draft || isLoading) && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          {/* Email Template Panel */}
+          {/* Email Preview Panel */}
           <div className="lg:col-span-2 rounded-2xl border border-white/[0.06] bg-white/[0.015] overflow-hidden">
-            {/* Email Header Bar */}
+            {/* Header */}
             <div className="flex items-center justify-between px-7 py-3.5 border-b border-white/[0.04]">
-              <div className="flex items-center gap-2">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-white/25">
-                  <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" strokeWidth="1" />
-                  <path d="M1 4.5L7 8L13 4.5" stroke="currentColor" strokeWidth="1" />
-                </svg>
-                <span className="text-[11px] font-medium text-white/40 uppercase tracking-[0.12em]">
-                  Email Preview
-                </span>
-              </div>
+              <span className="text-[11px] font-medium text-white/40 uppercase tracking-[0.12em]">
+                Email Preview
+              </span>
               {draft && (
-                <button
-                  onClick={handleCopy}
-                  className={`text-[11px] px-3 py-1 rounded-full border transition-all ${
-                    copied
-                      ? "border-emerald-500/20 text-emerald-400/60"
-                      : "border-white/[0.06] text-white/25 hover:border-white/[0.1] hover:text-white/40"
-                  }`}
-                >
-                  {copied ? "Copied" : "Copy email"}
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleCopyText}
+                    className={`text-[11px] px-3 py-1 rounded-full border transition-all ${
+                      copied === "text"
+                        ? "border-emerald-500/20 text-emerald-400/60"
+                        : "border-white/[0.06] text-white/25 hover:border-white/[0.1] hover:text-white/40"
+                    }`}
+                  >
+                    {copied === "text" ? "Copied" : "Copy text"}
+                  </button>
+                  <button
+                    onClick={handleCopyHtml}
+                    className={`text-[11px] px-3 py-1 rounded-full border transition-all ${
+                      copied === "html"
+                        ? "border-emerald-500/20 text-emerald-400/60"
+                        : "border-[var(--accent)]/20 text-[var(--accent)]/50 hover:border-[var(--accent)]/30 hover:text-[var(--accent)]/70"
+                    }`}
+                  >
+                    {copied === "html" ? "Copied" : "Copy HTML for MailChimp"}
+                  </button>
+                </div>
               )}
-            </div>
-
-            {/* Email Metadata */}
-            <div className="px-7 py-4 border-b border-white/[0.03] space-y-2">
-              <div className="flex items-baseline gap-3">
-                <span className="text-[11px] text-white/20 w-12 shrink-0">From</span>
-                <span className="text-[13px] text-white/60">
-                  Oliver Cameron{" "}
-                  <span className="text-white/20">&lt;oliver@odyssey.ml&gt;</span>
-                </span>
-              </div>
-              <div className="flex items-baseline gap-3">
-                <span className="text-[11px] text-white/20 w-12 shrink-0">To</span>
-                <span className="text-[13px] text-white/40">Investors</span>
-              </div>
-              <div className="flex items-baseline gap-3">
-                <span className="text-[11px] text-white/20 w-12 shrink-0">Subject</span>
-                <span className="text-[13px] text-white/70 font-medium">
-                  Odyssey {month} Update
-                </span>
-              </div>
             </div>
 
             {/* Email Body */}
             <div className="px-7 py-7">
               {draft ? (
-                <div className="prose prose-invert prose-sm max-w-none prose-headings:font-[family-name:var(--font-playfair)] prose-headings:text-white/85 prose-headings:font-normal prose-p:text-white/60 prose-p:leading-[1.7] prose-li:text-white/60 prose-li:leading-[1.7] prose-strong:text-white/90 prose-strong:font-semibold prose-ul:space-y-1 prose-h2:text-[16px] prose-h2:mt-6 prose-h2:mb-2 prose-h3:text-[14px] prose-h3:mt-5 prose-h3:mb-2 prose-ul:marker:text-white/20 [&_strong]:text-white/85">
+                <div className="prose prose-invert prose-sm max-w-none prose-p:text-white/60 prose-p:leading-[1.7] prose-li:text-white/60 prose-li:leading-[1.7] prose-strong:text-white/90 prose-strong:font-semibold prose-ul:space-y-1 prose-ul:marker:text-white/20 prose-hr:border-white/[0.06] prose-hr:my-5 [&_strong]:text-white/85">
                   <ReactMarkdown>{draft}</ReactMarkdown>
                 </div>
               ) : (

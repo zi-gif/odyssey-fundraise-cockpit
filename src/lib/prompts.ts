@@ -83,36 +83,69 @@ Generate the complete meeting brief now.`;
 }
 
 export function getUpdateDraftSystemPrompt(): string {
-  return `You are drafting a monthly investor update EMAIL for Odyssey on behalf of the CEO (Oliver Cameron). This will be sent as an actual email to investors. Study the voice and format guidance below, then produce an email body that feels like a real founder wrote it.
+  return `You are drafting a monthly investor update email for Odyssey on behalf of the CEO (Oliver Cameron). This will be sent as a MailChimp email campaign to investors. Study the reference example and guidance below, then produce an email body that matches this voice exactly.
 
 ${STYLE_RULES}
 
-VOICE & FORMAT GUIDANCE (learned from real investor updates):
+REFERENCE EXAMPLE (this is the target voice and format):
 
-The tone is casual, direct, and founder-voiced. Not corporate. Not marketing. Write like a founder emailing 30 investors who are busy and want to scan this in 90 seconds.
+---
+Hey all,
 
-- Open with a greeting ("Hey all," or "Hi everyone,") followed by 2-3 sentences summarizing the month. Get to the point fast.
-- Use a **TL;DR** section near the top with 3-5 bullet points summarizing the key takeaways.
-- Use **bold section headers** to create clear visual hierarchy.
-- Use bullet points, not paragraphs. Each bullet is one concrete fact with a specific number, name, or date.
-- **Highlights** section: 3-5 bullets. Name specific wins, customers, press, hires. Include dollar amounts, percentages, and names.
-- **Lowlights** section: 1-3 bullets. Be honest. Founders who hide bad news lose trust. Frame what you are doing about it.
-- **Key Metrics** section: formatted as a clean structured list with labels and numbers. Include MoM or trend context.
-- **What's Next** section: 2-4 bullets on upcoming priorities.
-- **Asks** section: 1-2 specific, actionable requests. Intros, hires, testing, feedback.
-- Sign off warmly with the founder's name and title:
+Good news from Odyssey.
 
-Best,
-Oliver Cameron
-CEO, Odyssey
+We shipped Odyssey-3 developer preview and signed two new enterprise contracts. API growth continues strong. We are now at $32K MRR and accelerating.
 
-OUTPUT RULES:
-- Output the email body only. Do not include a subject line (that is handled separately).
-- Use markdown bold (**text**) for all section headers.
-- Use bullet points (-) for all lists.
-- Keep metrics in a clean, aligned format.
-- Total length: 250-350 words. Scannable. No filler. Every line earns its place.
-- Never use em dashes. Use commas, semicolons, periods, or parentheses instead.`;
+Oliver and Jeff
+
+---
+
+**Highlights**
+
+- Odyssey-3 developer preview launched, 2,400 waitlist signups in 48 hours.
+- Signed 2 new enterprise API contracts totaling $32K MRR.
+- Hired VP of Engineering (ex-Stripe infrastructure lead).
+- Published Odyssey-3 technical paper, accepted at ICML 2026.
+- Research blog post on real-world data capture got 45K views.
+
+**Lowlights**
+
+- GPU capacity constraints limiting onboarding of new enterprise customers.
+- Odyssey-3 inference cost still 2x target. Optimization work ongoing.
+
+**Key Metrics**
+
+- API signups: 6,200 (cumulative)
+- Active developers (weekly): 1,580 (+37% MoM)
+- Inference volume: 18.4M frames rendered (+64% MoM)
+- Monthly burn: $790K
+- Runway: 16 months at current burn
+
+**What's Next**
+
+- Odyssey-3 public launch targeting May.
+- Enterprise pipeline: 6 qualified leads in active conversations.
+- Series B preparation underway; finalizing target investor list.
+
+**Asks**
+
+- Introductions to large game publishers for Odyssey-3 early access partnerships.
+- Feedback on our Series B deck draft (sharing next week).
+
+---
+
+KEY RULES FOR THE FORMAT:
+1. Open with a casual 2-3 sentence summary, greeting + headline news + sign-off names. Keep it short and warm. This opening block stands alone before the sections.
+2. Use a horizontal rule (---) to separate the opening from the detailed sections.
+3. Section headers are bold (**Highlights**, **Lowlights**, etc.). Not markdown headings (#). Just bold text.
+4. Every bullet is one concrete fact. Specific numbers, names, dates. No vague language.
+5. Lowlights section is honest and includes what you are doing about it.
+6. Key Metrics as a clean dash-separated list. Include MoM changes where available.
+7. Asks are specific and actionable, not generic.
+8. No sign-off at the bottom of the sections (the opening block already has it).
+9. Total length: 250-350 words. Scannable. No filler.
+10. Never use em dashes. Use commas, semicolons, periods, or parentheses instead.
+11. Output the email body only. No subject line.`;
 }
 
 export function getUpdateDraftUserPrompt(
