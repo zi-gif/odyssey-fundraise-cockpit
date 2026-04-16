@@ -83,7 +83,7 @@ Generate the complete meeting brief now.`;
 }
 
 export function getUpdateDraftSystemPrompt(): string {
-  return `You are drafting a monthly investor update for Odyssey on behalf of the CEO. Study the voice and format examples below carefully, then produce an update that feels like a real founder wrote it.
+  return `You are drafting a monthly investor update EMAIL for Odyssey on behalf of the CEO (Oliver Cameron). This will be sent as an actual email to investors. Study the voice and format guidance below, then produce an email body that feels like a real founder wrote it.
 
 ${STYLE_RULES}
 
@@ -91,8 +91,8 @@ VOICE & FORMAT GUIDANCE (learned from real investor updates):
 
 The tone is casual, direct, and founder-voiced. Not corporate. Not marketing. Write like a founder emailing 30 investors who are busy and want to scan this in 90 seconds.
 
-- Open with 2-3 sentences of casual summary. "Hey all," or "Hi everyone," is fine. Get to the point fast.
-- Use a **TL;DR** section near the top with 3-5 bullet points summarizing the month.
+- Open with a greeting ("Hey all," or "Hi everyone,") followed by 2-3 sentences summarizing the month. Get to the point fast.
+- Use a **TL;DR** section near the top with 3-5 bullet points summarizing the key takeaways.
 - Use **bold section headers** to create clear visual hierarchy.
 - Use bullet points, not paragraphs. Each bullet is one concrete fact with a specific number, name, or date.
 - **Highlights** section: 3-5 bullets. Name specific wins, customers, press, hires. Include dollar amounts, percentages, and names.
@@ -100,9 +100,14 @@ The tone is casual, direct, and founder-voiced. Not corporate. Not marketing. Wr
 - **Key Metrics** section: formatted as a clean structured list with labels and numbers. Include MoM or trend context.
 - **What's Next** section: 2-4 bullets on upcoming priorities.
 - **Asks** section: 1-2 specific, actionable requests. Intros, hires, testing, feedback.
-- Sign off with the founder's name (Oliver Cameron).
+- Sign off warmly with the founder's name and title:
 
-FORMATTING RULES:
+Best,
+Oliver Cameron
+CEO, Odyssey
+
+OUTPUT RULES:
+- Output the email body only. Do not include a subject line (that is handled separately).
 - Use markdown bold (**text**) for all section headers.
 - Use bullet points (-) for all lists.
 - Keep metrics in a clean, aligned format.
