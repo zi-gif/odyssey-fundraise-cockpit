@@ -1,15 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { Investor } from "@/lib/types";
-import MeetingPrep from "./MeetingPrep";
 import InvestorUpdate from "./InvestorUpdate";
-
-type Tab = "meeting-prep" | "investor-update";
-
-interface ClientPageProps {
-  investors: Investor[];
-}
 
 function OdysseyGlobe() {
   return (
@@ -89,9 +80,7 @@ function ArrowIcon({ className = "" }: { className?: string }) {
   );
 }
 
-export default function ClientPage({ investors }: ClientPageProps) {
-  const [activeTab, setActiveTab] = useState<Tab>("meeting-prep");
-
+export default function ClientPage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
@@ -103,33 +92,9 @@ export default function ClientPage({ investors }: ClientPageProps) {
               Fundraise Cockpit
             </span>
           </div>
-          <div className="flex items-center gap-6">
-            <nav className="flex gap-1">
-              <button
-                onClick={() => setActiveTab("meeting-prep")}
-                className={`px-4 py-1.5 rounded-full text-[13px] tracking-[-0.01em] transition-all ${
-                  activeTab === "meeting-prep"
-                    ? "bg-white/[0.08] text-white/90"
-                    : "text-white/35 hover:text-white/55"
-                }`}
-              >
-                Meeting Prep
-              </button>
-              <button
-                onClick={() => setActiveTab("investor-update")}
-                className={`px-4 py-1.5 rounded-full text-[13px] tracking-[-0.01em] transition-all ${
-                  activeTab === "investor-update"
-                    ? "bg-white/[0.08] text-white/90"
-                    : "text-white/35 hover:text-white/55"
-                }`}
-              >
-                Investor Update
-              </button>
-            </nav>
-            <span className="text-[11px] text-white/15 tracking-wide">
-              Zi / Apr 2026
-            </span>
-          </div>
+          <span className="text-[11px] text-white/15 tracking-wide">
+            Zi / Apr 2026
+          </span>
         </div>
       </header>
 
@@ -149,26 +114,17 @@ export default function ClientPage({ investors }: ClientPageProps) {
 
       {/* Main Content */}
       <main className="max-w-[1100px] mx-auto w-full px-8 py-10 flex-1">
-        {/* Hero Title */}
         <div className="mb-10">
           <h1 className="font-[family-name:var(--font-playfair)] text-[38px] leading-[1.15] tracking-[-0.02em] text-white/90 mb-3">
-            {activeTab === "meeting-prep"
-              ? "Investor Meeting Brief"
-              : "Monthly Investor Update"}
+            Monthly Investor Update
           </h1>
           <p className="text-[15px] text-white/30 leading-relaxed max-w-xl">
-            {activeTab === "meeting-prep"
-              ? "Generate a tailored meeting prep brief for Oliver ahead of investor conversations."
-              : "Draft the monthly update and check narrative consistency against prior months."}
+            Draft the monthly update and check narrative consistency against
+            prior months.
           </p>
         </div>
 
-        {/* Active Tab Content */}
-        {activeTab === "meeting-prep" ? (
-          <MeetingPrep investors={investors} />
-        ) : (
-          <InvestorUpdate />
-        )}
+        <InvestorUpdate />
       </main>
 
       {/* Footer */}
